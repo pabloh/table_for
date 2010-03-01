@@ -7,7 +7,7 @@ module Tabletastic
     options[:html] ||= {}
     options[:html][:id] ||= get_id_for(klass)
     concat(tag(:table, options[:html], true))
-    yield TableBuilder.new(collection, klass, self)
+    yield TableBuilder.new(collection, klass, self) if !collection.empty?
     concat("</table>")
   end
 
